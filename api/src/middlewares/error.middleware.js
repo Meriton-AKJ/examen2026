@@ -11,7 +11,7 @@ import { Prisma } from '../db.js';
  * 
  * @returns {void}
  */
-export const error  = (err, req, res, next) => {
+export const error  = (err, req, res, _next) => {
   console.error(err);
 
   if (err instanceof ZodError) {
