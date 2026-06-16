@@ -1,18 +1,55 @@
-# React + Vite
+# Tasks SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application monopage React + Vite pour la gestion de tâches.
 
-Currently, two official plugins are available:
+## Pré-requis
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js (v20+)
+- L'API démarrée (voir `api/README.md`)
 
-## React Compiler
+## Démarrage
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### 1. Installer les dépendances
 
-Note: This will impact Vite dev & build performances.
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+### 2. Vérifier les variables d'environnement
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Le fichier `.env` est fourni et préconfiguré pour pointer vers l'API locale :
+
+```
+VITE_API_URL=http://localhost:3000
+```
+
+Modifiez cette valeur si votre API tourne sur un autre port.
+
+### 3. Lancer le serveur de développement
+
+```bash
+npm run dev
+```
+
+La SPA est disponible sur `http://localhost:5173`.
+
+---
+
+## Commandes utiles
+
+| Commande | Description |
+|---|---|
+| `npm run dev` | Démarre le serveur de développement avec HMR |
+| `npm run build` | Compile l'application pour la production |
+| `npm run preview` | Prévisualise le build de production |
+| `npm run lint` | Vérifie le code avec ESLint |
+
+## Architecture
+
+```
+src/
+├── components/     # Composants React (TaskForm, TaskItem, TaskList)
+├── services/       # Couche d'appels API (tasks.service.js)
+├── App.jsx         # Composant racine
+└── main.jsx        # Point d'entrée
+```

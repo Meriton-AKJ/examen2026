@@ -11,8 +11,8 @@ La SPA est écrite en React, et l'API en Node.js avec Express + Prisma. Lisez le
 Référez-vous aux READMEs pour les instructions détaillées d'installation et de démarrage.
 
 ```
-api/README.md - installation, variables d'environnement, commandes
-spa/README.md - installation, commandes, architecture
+api/README.md    - installation, variables d'environnement, migrations, commandes
+client/README.md - installation, commandes, architecture
 ```
 
 L'ordre de démarrage est important: lancez l'API en premier, puis la SPA.
