@@ -24,12 +24,13 @@ export const getTaskById = async (req, res, next) => {
 
 export const getTasks = async (req, res, next) => {
   try {
-    const tasks = await prisma.task.findMany();
+    const { status } = req.query;
 
-    res
-      .status(200)
-      .json(tasks)
-      .end();
+    const tasks = await prisma.task.findMany({
+      where: status ? { status } : undefined,
+    });
+
+    res.status(200).json(tasks).end();
   } catch (_error) {
     next(_error);
   }

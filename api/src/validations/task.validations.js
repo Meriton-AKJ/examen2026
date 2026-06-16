@@ -23,3 +23,7 @@ export const getTaskSchema = z.object({
 export const deleteTaskSchema = z.object({
   id: z.string().min(1),
 });
+
+export const getTasksQuerySchema = z.object({
+  status: statusTaskEnum.optional(),
+});

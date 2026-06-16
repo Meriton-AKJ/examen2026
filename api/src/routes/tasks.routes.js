@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { getTasks, getTaskById, createTask, updateTask, deleteTask } from "../controllers/tasks.controller.js";
-import { createTaskSchema, updateTaskSchema, getTaskSchema, deleteTaskSchema } from "../validations/task.validations.js";
-import { validate } from "../middlewares/validation.middleware.js";
+import { createTaskSchema, updateTaskSchema, getTaskSchema, deleteTaskSchema, getTasksQuerySchema } from "../validations/task.validations.js";
+import { validate, validateQuery } from "../middlewares/validation.middleware.js";
 
 const router = Router();
 
 router
     .route("/")
-    .get(getTasks)
+    .get(validateQuery(getTasksQuerySchema), getTasks)
     .post(validate(createTaskSchema), createTask);
 
 router

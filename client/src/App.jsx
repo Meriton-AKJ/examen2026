@@ -14,12 +14,13 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  
+  const [status, setStatus] = useState('');
+
   useEffect(() => {
     async function loadTasks() {
       try {
         setLoading(true);
-        const tasks = await getTasks();
+        const tasks = await getTasks(status);
         setTasks(tasks);
       } catch (error) {
         setError(error.message);
@@ -28,7 +29,7 @@ function App() {
       }
     }
     loadTasks();
-  }, []);
+  }, [status]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -62,10 +63,21 @@ function App() {
       
       <TaskForm key={task?.id} task={task} setTasks={setTasks} />
 
+      <select value={status} onChange={(e) => setStatus(e.target.value)}>
+        <option value="">Tous</option>
+        <option value="todo">Todo</option>
+        <option value="pending">Pending</option>
+        <option value="done">Done</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+
       <TaskList>
-        {tasks.map((task) => (
-          <TaskItem key={task.id} task={task} onEdit={handleEdit} onDelete={handleDelete} onCancel={handleCancel} />
-        ))}
+        {tasks.length === 0
+          ? <p>Aucune tâche trouvée.</p>
+          : tasks.map((task) => (
+              <TaskItem key={task.id} task={task} onEdit={handleEdit} onDelete={handleDelete} onCancel={handleCancel} />
+            ))
+        }
       </TaskList>
     </>
   )

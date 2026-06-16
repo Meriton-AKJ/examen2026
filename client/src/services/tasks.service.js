@@ -1,7 +1,8 @@
 const API_URL = `${import.meta.env.VITE_API_URL}/tasks`;
 
-export const getTasks = async () => {
-  const response = await fetch(API_URL);
+export const getTasks = async (status) => {
+  const url = status ? `${API_URL}?status=${status}` : API_URL;
+  const response = await fetch(url);
 
   if (!response.ok) {
     throw new Error('Failed to fetch tasks');
@@ -9,6 +10,7 @@ export const getTasks = async () => {
 
   return response.json();
 }
+
 
 export const createTask = async (task) => {
   const response = await fetch(API_URL, {

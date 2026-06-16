@@ -26,3 +26,24 @@ export const validate = (schema) => (req, res, next) => {
     next(error);
   }
 }
+
+export const validateQuery = (schema) => (req, res, next) => {
+  try {
+    const payload = req.query;
+
+    if (!payload) {
+      return next();
+    }
+
+    const { error } = schema.safeParse(payload);
+
+    // to verify if zod found an error 
+    if (error) {
+      return next(error);
+    }
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+}
