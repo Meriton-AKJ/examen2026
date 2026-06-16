@@ -1,0 +1,44 @@
+.task {
+  border: 1px solid var(--color-tertiary);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.taskTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.todo {
+  background-color: var(--color-danger);
+}
+
+.pending {
+  background-color: var(--color-warning);
+}
+
+.done {
+  background-color: var(--color-success);
+}
+
+.cancelled {
+  background-color: var(--color-neutral);
+}

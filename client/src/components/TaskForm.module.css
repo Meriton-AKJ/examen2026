@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  border: 1px solid var(--color-tertiary);
+  border-radius: 0.25rem;
+  background-color: var(--color-quaternary);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  padding: 0.5rem;
+  border: 1px solid var(--color-tertiary);
+  border-radius: 0.25rem;
+}
+
+.button {
+  padding: 0.5rem;
+  border: 1px solid var(--color-tertiary);
+  border-radius: 0.25rem;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-quinary);
+  }
+}
+
+.info {
+  background-color: var(--color-info);
+}
+
+.cancel {
+  background-color: var(--color-tertiary);
+}
+
+.danger {
+  background-color: var(--color-danger);
+}
+
+.error {
+  color: var(--color-danger);
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+}
